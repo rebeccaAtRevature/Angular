@@ -1,0 +1,28 @@
+<div>
+    <h3>List Animals</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Group</th>
+                <th>Weight</th>
+                <th>Native Continent</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let animal of allAnimals">
+                <td>{{ animal.animalId }}</td>
+                <td>{{ animal.name }}</td>
+                <td>{{ animal.species }}</td>
+                <td>{{ animal.group }}</td>
+                <td>{{ animal.weight }}</td>
+                <td>{{ animal.nativeContinent }}</td>
+                <td></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
