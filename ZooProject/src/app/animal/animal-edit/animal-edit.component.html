@@ -1,0 +1,59 @@
+<div class="container m-5">
+    <form #myFormTemplate="ngForm" (ngSubmit)="updateAnimal()">
+        <div class="card-header">Update Animal</div>
+
+        <div class="card-body">
+
+            <div>Animal ID: {{ newAnimal.animalId }}</div>
+            <div class="mb-3 mt-3">
+                <label for="name" class="form-label">Common Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required
+                    #myName="ngModel" (change)="test(myName)" [(ngModel)]="newAnimal.name">
+                <div *ngIf="!myName.valid" class="small text-danger">*Common Name is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="species" class="form-label">Species:</label>
+                <input type="text" class="form-control" id="species" placeholder="Enter species" name="species" required
+                    #mySpecies="ngModel" (change)="test(mySpecies)" [(ngModel)]="newAnimal.species">
+                <div *ngIf="!mySpecies.valid" class="small text-danger">*Species is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="genus" class="form-label">Genus:</label>
+                <input type="text" class="form-control" id="genus" placeholder="Enter genus" name="genus" required
+                    #myGenus="ngModel" (change)="test(myGenus)" [(ngModel)]="newAnimal.genus">
+                <div *ngIf="!myGenus.valid" class="small text-danger">*Genus is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="group" class="form-label">Group:</label>
+                <input type="text" class="form-control" id="group" placeholder="Enter group" name="group" required
+                    #myGroup="ngModel" (change)="test(myGroup)" [(ngModel)]="newAnimal.group">
+                <div *ngIf="!myGroup.valid" class="small text-danger">*Group is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="weight" class="form-label">Weight (kg):</label>
+                <input type="text" class="form-control" id="weight" placeholder="Enter weight" name="weight" required
+                    #myWeight="ngModel" (change)="test(myWeight)" [(ngModel)]="newAnimal.weight">
+                <div *ngIf="!myWeight.valid" class="small text-danger">*Weight is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="nativeContinent" class="form-label">Native Continent:</label>
+                <input type="text" class="form-control" id="nativeContinent" placeholder="Enter native continent"
+                    name="nativeContinent" required #myNativeContinent="ngModel" (change)="test(myNativeContinent)"
+                    [(ngModel)]="newAnimal.nativeContinent">
+                <div *ngIf="!myNativeContinent.valid" class="small text-danger">*Native Continent is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="imageUrl" class="form-label">Image URL:</label>
+                <input type="text" class="form-control" id="imageUrl" placeholder="Enter image URL" name="imageUrl" required
+                    #myImage="ngModel" (change)="test(myImage)" [(ngModel)]="newAnimal.imageUrl">
+                <div *ngIf="!myImage.valid" class="small text-danger">*Image URL is required!</div>
+            </div>
+
+        </div>
+        <div class="card-footer">
+            <button [disabled]="!myFormTemplate.valid" type="submit" class="btn btn-primary">
+                Update
+            </button>
+        </div>
+    </form>
+</div>

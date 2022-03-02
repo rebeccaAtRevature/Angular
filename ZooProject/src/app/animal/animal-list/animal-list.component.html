@@ -1,13 +1,90 @@
 <div class="container">
     <h3>List Animals</h3>
-    <table class="table table-hover">
-        <thead>
+    <button type="button" class="btn btn-light" (click)="toggleAddForm()">Add Animal</button>
+    <div class="card m-5" *ngIf="toggleAdd">
+        <div class="card-header">Add Animal</div>
+
+        <div class="card-body"><form action="/action_page.php">
+            <div class="mb-3 mt-3">
+              <label for="name" class="form-label">Common Name:</label>
+              <input type="text" 
+                class="form-control" 
+                id="name" 
+                placeholder="Enter name" 
+                name="name"
+                [(ngModel)]="newAnimal.name">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="species" class="form-label">Species:</label>
+                <input type="text" 
+                  class="form-control" 
+                  id="species" 
+                  placeholder="Enter species" 
+                  name="species"
+                  [(ngModel)]="newAnimal.species">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="genus" class="form-label">Genus:</label>
+                <input type="text" 
+                  class="form-control" 
+                  id="genus" 
+                  placeholder="Enter genus" 
+                  name="genus"
+                  [(ngModel)]="newAnimal.genus">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="group" class="form-label">Group:</label>
+                <input type="text" 
+                  class="form-control" 
+                  id="group" 
+                  placeholder="Enter group" 
+                  name="group"
+                  [(ngModel)]="newAnimal.group">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="weight" class="form-label">Weight (kg):</label>
+                <input type="text" 
+                  class="form-control" 
+                  id="weight" 
+                  placeholder="Enter weight" 
+                  name="weight"
+                  [(ngModel)]="newAnimal.weight">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="nativeContinent" class="form-label">Native Continent:</label>
+                <input type="text" 
+                  class="form-control" 
+                  id="nativeContinent" 
+                  placeholder="Enter native continent" 
+                  name="nativeContinent"
+                  [(ngModel)]="newAnimal.nativeContinent">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="imageUrl" class="form-label">Image URL:</label>
+                <input type="text" 
+                  class="form-control" 
+                  id="imageUrl" 
+                  placeholder="Enter image URL" 
+                  name="imageUrl"
+                  [(ngModel)]="newAnimal.imageUrl">
+              </div>
+          </form>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-primary" (click)="addAnimal()">
+                Add
+            </button>
+        </div>
+      </div>
+    
+    <table class="table table-hover m-3">
+        <thead class="table-success">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Species</th>
                 <th>Group</th>
-                <th>Weight</th>
+                <th>Weight (kg)</th>
                 <th>Native Continent</th>
                 <th>Image</th>
                 <th>Edit</th>
@@ -24,11 +101,13 @@
                 <td>{{ animal.nativeContinent }}</td>
                 <td><img class="img-fluid" [src]="animal.imageUrl" width="100px" height="80px" object-fit: cover></td>
                 <td><button type="button" 
-                    class="btn btn-light">Edit</button></td>
+                    class="btn btn-light"
+                    (click)="goToEditAnimal(animal.animalId)">
+                    <i class="material-icons">edit</i></button></td>
                 <td><button type="button" 
                     class="btn btn-light" 
-                    (click)="deleteAnimal(animal.animalId)">Delete</button></td>
-
+                    (click)="deleteAnimal(animal.animalId)">
+                    <i class="material-icons">delete</i></button></td>
             </tr>
         </tbody>
     </table>

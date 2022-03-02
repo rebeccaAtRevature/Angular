@@ -9,7 +9,7 @@ export class AnimalService {
   allAnimals: Animal[] = [{
     animalId: 101,
     name: "Peafowl",
-    species: "crisatus",
+    species: "Crisatus",
     genus: "Pavo",
     group: "Bird",
     weight: 25,
@@ -37,7 +37,7 @@ export class AnimalService {
     imageUrl: "https://images.unsplash.com/photo-1615474286632-e31ac3633d58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
 
   },{
-    animalId: 103,
+    animalId: 104,
     name: "Prarie Dog",
     species: "Cynomys parvidens",
     genus: "rodent",
