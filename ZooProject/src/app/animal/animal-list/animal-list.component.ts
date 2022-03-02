@@ -1,5 +1,5 @@
 import { prepareSyntheticPropertyName } from '@angular/compiler/src/render3/util';
-import { Component, OnInit } from '@angular/core';
+import { APP_INITIALIZER, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-animal-list',
@@ -53,6 +53,21 @@ export class AnimalListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  deleteAnimal(animalId: any){
+    // Iterate through all elements in allAnimals array
+    for (let i = 0; i < this.allAnimals.length; i++){
+      // Check if the animal ID for the current object in iteration 
+      // matches the animal ID which was passed in as argument
+      if (this.allAnimals[i].animalId == animalId){
+        // Remove the matching element from the array
+        // this splice statement removes 1 element begining from index i
+        this.allAnimals.splice(i,1);
+        break;
+      }
+    }
   }
 
 }

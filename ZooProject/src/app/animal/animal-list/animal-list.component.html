@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <h3>List Animals</h3>
     <table class="table table-hover">
         <thead>
@@ -10,6 +10,8 @@
                 <th>Weight</th>
                 <th>Native Continent</th>
                 <th>Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -20,7 +22,12 @@
                 <td>{{ animal.group }}</td>
                 <td>{{ animal.weight }}</td>
                 <td>{{ animal.nativeContinent }}</td>
-                <td></td>
+                <td><img class="img-fluid" [src]="animal.imageUrl" width="100px" height="80px" object-fit: cover></td>
+                <td><button type="button" 
+                    class="btn btn-light">Edit</button></td>
+                <td><button type="button" 
+                    class="btn btn-light" 
+                    (click)="deleteAnimal(animal.animalId)">Delete</button></td>
 
             </tr>
         </tbody>
