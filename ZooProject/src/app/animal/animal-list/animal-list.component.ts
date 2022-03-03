@@ -1,5 +1,5 @@
 import { prepareSyntheticPropertyName } from '@angular/compiler/src/render3/util';
-import { APP_INITIALIZER, Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, APP_INITIALIZER, Component, DoCheck, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Animal } from '../animal.model';
 import { AnimalService } from '../animal.service';
@@ -9,8 +9,8 @@ import { AnimalService } from '../animal.service';
   templateUrl: './animal-list.component.html',
   styleUrls: ['./animal-list.component.css']
 })
-export class AnimalListComponent implements OnInit {
-  
+export class AnimalListComponent implements OnInit, OnChanges, DoCheck, OnDestroy, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
+
   // Initialize this variable in ngOnInit()
   allAnimals: Animal[] = [];
 
@@ -35,15 +35,38 @@ export class AnimalListComponent implements OnInit {
     // Initialize an object of the service layer
     // not really necessary...
     // this.animalService = new AnimalService();
-   }
+  }
+
 
   ngOnInit(): void {
     // Content the service layer and copy contents of array into allAnimals
     this.allAnimals = this.animalService.fetchAllAnimals();
+    console.log("ngOnInit() has been called")
+  }
+  ngOnChanges(): void {
+    console.log("ngOnInit() has been called")
+  }
+  ngDoCheck(): void {
+    console.log("ngDoCheck() has been called")
+  }
+  ngAfterContentInit(): void {
+    console.log("ngAfterContentInit() has been called")
+  }
+  ngAfterContentChecked(): void {
+    console.log("ngAfterContentInit() has been called")
+  }
+  ngAfterViewInit(): void {
+    console.log("ngAfterViewInit() has been called")
+  }
+  ngAfterViewChecked(): void {
+    console.log("ngAfterViewChecked() has been called")
+  }
+  ngOnDestroy(): void {
+    console.log("ngOnDestroy() has been called")
   }
 
-  toggleAddForm(){
-    if(this.toggleAdd == true){
+  toggleAddForm() {
+    if (this.toggleAdd == true) {
       this.toggleAdd = false;
     } else {
       this.toggleAdd = true;
@@ -56,13 +79,13 @@ export class AnimalListComponent implements OnInit {
     this.router.navigate(["animal-edit", animalId])
   }
 
-  deleteAnimal(animalId: number){
+  deleteAnimal(animalId: number) {
 
     return this.animalService.deleteAnimal(animalId);
   }
 
   // takes in animal without primary key, returns animal with ID
-  addAnimal(){
+  addAnimal() {
     let addNewAnimal: Animal = {
       animalId: 0,
       name: this.newAnimal.name,
@@ -71,7 +94,7 @@ export class AnimalListComponent implements OnInit {
       group: this.newAnimal.group,
       weight: this.newAnimal.weight,
       nativeContinent: this.newAnimal.nativeContinent,
-      imageUrl: this.newAnimal.imageUrl      
+      imageUrl: this.newAnimal.imageUrl
     }
 
     this.animalService.addAnimal(addNewAnimal);
@@ -79,7 +102,7 @@ export class AnimalListComponent implements OnInit {
     this.allAnimals = this.animalService.fetchAllAnimals();
   }
 
-  fetchAnAnimal(animalId: number): Animal{
+  fetchAnAnimal(animalId: number): Animal {
     // make a call to the service layer
     return this.animalService.fetchAnAnimal(animalId);
   }

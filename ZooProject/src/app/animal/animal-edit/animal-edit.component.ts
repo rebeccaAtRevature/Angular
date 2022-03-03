@@ -40,6 +40,19 @@ export class AnimalEditComponent implements OnInit {
   }
 
   updateAnimal(){
+    /*
+    let newUpdateAnimal: Animal = {
+      // Bind properties from updateAnimal form to newAnimal
+      animalId: this.newAnimal.animalId,
+      name: this.newAnimal.name,
+      species: this.newAnimal.species,
+      genus: this.newAnimal.genus,
+      group: this.newAnimal.group,
+      weight: this.newAnimal.weight,
+      nativeContinent: this.newAnimal.nativeContinent,
+      imageUrl: this.newAnimal.imageUrl
+  
+    }*/
   
     this.animalService.updateAnimal(this.newAnimal);
     // once update is over navigate back to ListBookComponent

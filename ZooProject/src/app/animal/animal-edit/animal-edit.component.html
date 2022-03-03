@@ -44,8 +44,8 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="imageUrl" class="form-label">Image URL:</label>
-                <input type="text" class="form-control" id="imageUrl" placeholder="Enter image URL" name="imageUrl" required
-                    #myImage="ngModel" (change)="test(myImage)" [(ngModel)]="newAnimal.imageUrl">
+                <input type="text" class="form-control" id="imageUrl" placeholder="Enter image URL" name="imageUrl"
+                    required #myImage="ngModel" (change)="test(myImage)" [(ngModel)]="newAnimal.imageUrl">
                 <div *ngIf="!myImage.valid" class="small text-danger">*Image URL is required!</div>
             </div>
 
