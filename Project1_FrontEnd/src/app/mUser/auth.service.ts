@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { MUser } from './m-user.model';
+import { Observable } from 'rxjs';
+import { Manager } from '../manager/manager.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,11 @@ export class AuthService {
 
   loggedIn: boolean = false;
 
-  storeUser(user: MUser): void{
-    sessionStorage.setItem("managerInfo", JSON.stringify(user));
+  storeUser(manager: Observable<Manager>): void{
+    sessionStorage.setItem("managerInfo", JSON.stringify(manager));
   }
 
-  retrieveUser(): MUser{
+  retrieveUser(): Manager{
     let data: any = sessionStorage.getItem("managerInfo");
     return JSON.parse(data);
   }

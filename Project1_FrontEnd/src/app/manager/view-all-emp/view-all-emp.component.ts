@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Employee } from 'src/app/employee/empolyee.model';
+import { ManagerService } from '../manager.service';
 
 
 @Component({
@@ -12,9 +14,14 @@ export class ViewAllEmpComponent implements OnInit {
   
   allEmployees: Employee[] = [];
   
-  constructor() { }
+  constructor(private managerService: ManagerService, private router: Router) { }
   
   ngOnInit(): void {
+    // This returns an observable, must subscribe to the observable
+    this.managerService.viewAllEmployees().subscribe( response => {
+      console.log(response);
+      this.allEmployees = response;
+    });
     
   }
   

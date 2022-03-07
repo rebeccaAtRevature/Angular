@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Manager } from '../manager/manager.model';
 import { AuthService } from '../mUser/auth.service';
 import { MUser } from './m-user.model';
 
@@ -10,12 +12,13 @@ export class MUserService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  validateMUser(newMUser: MUser): MUser{
-    // Perform logic to check if credentials are correct
+  validateMUser(newMUser: MUser): Observable<Manager>{
+    console.log(newMUser.username);
+    console.log(newMUser.password);
     // Make http get request
-    this.http.get(`/api/login/${newMUser.username}/${newMUser.password}`);
-    this.authService.storeUser(newMUser);
+    let manager = this.http.get<Manager>(`/api/login/${newMUser.username}/${newMUser.password}`);
+    this.authService.storeUser(manager);
     this.authService.loggedIn=true;
-    return newMUser;
+    return manager;
   }
 }

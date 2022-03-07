@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Reimbursement } from 'src/app/reimbursement/reimbursement.model';
+import { ManagerService } from '../manager.service';
 
 @Component({
   selector: 'app-view-emp-r',
@@ -9,10 +11,16 @@ import { Reimbursement } from 'src/app/reimbursement/reimbursement.model';
 export class ViewEmpRComponent implements OnInit {
 
   allReimbursements: Reimbursement[] = [];
+
+  employeeId: number = 0;
   
-  constructor() { }
+  constructor(private managerService: ManagerService, private router: Router) { }
 
   ngOnInit(): void {
+    this.managerService.viewAllRequests(this.employeeId).subscribe( response => {
+      console.log(response);
+      this.allReimbursements = response;
+    });
   }
 
 }

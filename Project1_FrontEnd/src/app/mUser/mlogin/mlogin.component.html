@@ -1,6 +1,6 @@
 <div class="container m-5">
     <form #myFormTemplate="ngForm" (ngSubmit)="validateUser()">
-        <div class="card-header">MANAGER LOGIN<div>{{ errorMessage }}</div></div>
+        <div class="card-header">MANAGER LOGIN<div class="small text-danger">{{ errorMessage }}</div></div>
 
         <div class="card-body">
 
@@ -13,7 +13,7 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="password" class="form-label">Password:</label>
-                <input type="text" class="form-control" id="password" placeholder="Enter password" name="password" required
+                <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required
                     #myPassword="ngModel" [(ngModel)]="newUser.password">
                 <div *ngIf="!myPassword.valid" class="small text-danger">*Password is required!</div>
             </div>

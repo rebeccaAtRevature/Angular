@@ -1,8 +1,8 @@
 export interface Reimbursement {
-    reimbusermentId: number;
+    reimbursementId: number;
 	requestingEmployeeId: number;
 	reimbursementAmount: number;
 	requestApproved?: boolean;
-	dateOfRequest: string;
+	dateOfRequest?: string;
     dateResolved?: string;
 }

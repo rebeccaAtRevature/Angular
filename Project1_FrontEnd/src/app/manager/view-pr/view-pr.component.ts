@@ -4,32 +4,25 @@ import { Reimbursement } from 'src/app/reimbursement/reimbursement.model';
 import { ManagerService } from '../manager.service';
 
 @Component({
-  selector: 'app-app-deny',
-  templateUrl: './app-deny.component.html',
-  styleUrls: ['./app-deny.component.css']
+  selector: 'app-view-pr',
+  templateUrl: './view-pr.component.html',
+  styleUrls: ['./view-pr.component.css']
 })
-export class AppDenyComponent implements OnInit {
+export class ViewPrComponent implements OnInit {
 
   pendingReimbursement: Reimbursement = {
     reimbursementId: 0,
     requestingEmployeeId: 0,
     reimbursementAmount: 0,
-    requestApproved: false,
+    dateOfRequest: ""
   }
-  resolvedReimbursement: Reimbursement = {
-    reimbursementId: 0,
-    requestingEmployeeId: 0,
-    reimbursementAmount: 0,
-    requestApproved: false,
-  }
-
   constructor(private managerService: ManagerService, private router: Router) { }
 
   ngOnInit(): void {
-    this.managerService.approveOrDeny(this.pendingReimbursement).subscribe( response => {
+    this.managerService.readPendingRequest(this.pendingReimbursement.reimbursementId).subscribe( response => {
       console.log(response);
-      this.resolvedReimbursement = response;
+      this.pendingReimbursement = response;
     });
   }
-
+  
 }
