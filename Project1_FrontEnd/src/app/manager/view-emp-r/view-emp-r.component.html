@@ -1,0 +1,22 @@
+<div class="container pt-5 my-5">
+    <table class="table table-hover m-3">
+        <thead class="table-success">
+            <tr>
+                <th>Reimbursement ID</th>
+                <th>Requesting Employee ID</th>
+                <th>Reimbursement Amount</th>
+                <th>Request Status</th>
+                <th>Date Resolved</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Reimbursement of allReimbursements">
+                <td>{{ Reimbursement.reimbusermentId }}</td>
+                <td>{{ Reimbursement.requestingEmployeeId }}</td>
+                <td>{{ Reimbursement.reimbursementAmount }}</td>
+                <td>{{ Reimbursement.requestApproved }}</td>
+                <td>{{ Reimbursement.dateResolved }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -22,8 +22,8 @@ export class MloginComponent implements OnInit {
   }
 
   validateUser(){
-/*     let returnUser: MUser = this.muserService.validateMUser(this.newUser);
-    if(returnUser.username == null){
+    let returnUser: MUser = this.muserService.validateMUser(this.newUser);
+ /*   if(returnUser.username == null){
       // invalid credentials
       this.errorMessage = "Invalid Credentials!!";
     }else{
