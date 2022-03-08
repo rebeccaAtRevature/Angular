@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { MAuthService } from '../m-auth.service';
 
 @Component({
   selector: 'app-mlogout',
@@ -9,13 +9,13 @@ import { AuthService } from '../auth.service';
 })
 export class MlogoutComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private mAuthService: MAuthService, private router: Router) { }
 
   ngOnInit(): void {
 
-    this.authService.destroyUser();
+    this.mAuthService.destroyUser();
 
-    this.authService.loggedIn=false;
+    this.mAuthService.loggedIn=false;
 
     this.router.navigate(['loginMain']);
   }

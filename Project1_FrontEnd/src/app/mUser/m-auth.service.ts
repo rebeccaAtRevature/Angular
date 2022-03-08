@@ -5,8 +5,8 @@ import { Manager } from '../manager/manager.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-
+export class MAuthService {
+  
   constructor() { }
 
   loggedIn: boolean = false;

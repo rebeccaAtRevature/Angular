@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mhome.component.css']
 })
 export class MhomeComponent implements OnInit {
+  
+  toggleNavBar: boolean = false;
 
   constructor() { }
 

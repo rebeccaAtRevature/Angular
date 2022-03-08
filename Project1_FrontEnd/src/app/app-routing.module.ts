@@ -17,16 +17,16 @@ import { MloginComponent } from './mUser/mlogin/mlogin.component';
 
 const routes: Routes = [
   { path: "loginMain", component: LoginMainComponent },
-  { path: "loginMain/mlogin", component: MloginComponent },
+  { path: "mlogin", component: MloginComponent },
   { path: "elogin", component: EloginComponent },
   { path: "mHeader", component: MheaderComponent },
-  { path: "mHome", component: MhomeComponent },
-  { path: "app-deny", component: AppDenyComponent },
-  { path: "view-pr", component: ViewPrComponent },
-  { path: "view-emp-r", component: ViewEmpRComponent },
-  { path: "view-all-rr", component: ViewAllRRComponent },
-  { path: "view-all-pr", component: ViewAllPRComponent },
-  { path: "view-all-emp", component: ViewAllEmpComponent },
+  { path: "mHome", component: MhomeComponent, canActivate: [MUserGuard] },
+  { path: "app-deny", component: AppDenyComponent, canActivate: [MUserGuard] },
+  { path: "view-pr", component: ViewPrComponent, canActivate: [MUserGuard] },
+  { path: "view-emp-r", component: ViewEmpRComponent, canActivate: [MUserGuard] },
+  { path: "view-all-rr", component: ViewAllRRComponent, canActivate: [MUserGuard] },
+  { path: "view-all-pr", component: ViewAllPRComponent, canActivate: [MUserGuard] },
+  { path: "view-all-emp", component: ViewAllEmpComponent, canActivate: [MUserGuard] },
   { path: "eHome", component: EhomeComponent, canActivate: [EUserGuard] }
 ];
 
