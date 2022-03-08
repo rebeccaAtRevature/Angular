@@ -26,10 +26,19 @@ export class AppDenyComponent implements OnInit {
   constructor(private managerService: ManagerService, private router: Router) { }
 
   ngOnInit(): void {
-    this.managerService.approveOrDeny(this.pendingReimbursement).subscribe( response => {
-      console.log(response);
-      this.resolvedReimbursement = response;
-    });
+    
   }
 
+  makeCall(){
+    this.managerService.approveOrDeny(this.pendingReimbursement)
+  }
+
+  getRequest(pendingReimbursement: Reimbursement): void{
+     this.managerService.approveOrDeny(pendingReimbursement).subscribe( response => {
+      console.log(response);
+      this.resolvedReimbursement = response;
+  });
+  }
+
+ 
 }

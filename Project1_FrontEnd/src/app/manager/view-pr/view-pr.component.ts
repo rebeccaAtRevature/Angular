@@ -26,7 +26,7 @@ export class ViewPrComponent implements OnInit {
   makeCall(){
     this.getRequest(this.pendingReimbursement.reimbursementId);
   }
-  getRequest (reimbursementId: number){
+  getRequest (reimbursementId: number): void{
       this.managerService.readPendingRequest(reimbursementId).subscribe( response => {
       console.log(response);
       this.pendingReimbursement.reimbursementId = response.reimbursementId;
