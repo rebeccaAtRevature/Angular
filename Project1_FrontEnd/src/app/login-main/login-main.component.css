@@ -1,0 +1,14 @@
+.container-fluid {
+    padding: 10px;
+    background: #f4f0ec;
+    width: 100%;
+    color: #353839;
+}
+
+.card {
+    margin: 10px;
+}
+.btn{
+    color: #fff;
+    background: #696969;
+}

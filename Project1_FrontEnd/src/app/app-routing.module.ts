@@ -21,12 +21,12 @@ const routes: Routes = [
   { path: "elogin", component: EloginComponent },
   { path: "mHeader", component: MheaderComponent },
   { path: "mHome", component: MhomeComponent, canActivate: [MUserGuard] },
-  { path: "app-deny", component: AppDenyComponent, canActivate: [MUserGuard] },
-  { path: "view-pr", component: ViewPrComponent, canActivate: [MUserGuard] },
-  { path: "view-emp-r", component: ViewEmpRComponent, canActivate: [MUserGuard] },
-  { path: "view-all-rr", component: ViewAllRRComponent, canActivate: [MUserGuard] },
-  { path: "view-all-pr", component: ViewAllPRComponent, canActivate: [MUserGuard] },
-  { path: "view-all-emp", component: ViewAllEmpComponent, canActivate: [MUserGuard] },
+  { path: "mHome/app-deny", component: AppDenyComponent, canActivate: [MUserGuard] },
+  { path: "mHome/view-pr", component: ViewPrComponent, canActivate: [MUserGuard] },
+  { path: "mHome/view-emp-r", component: ViewEmpRComponent, canActivate: [MUserGuard] },
+  { path: "mHome/view-all-rr", component: ViewAllRRComponent, canActivate: [MUserGuard] },
+  { path: "mHome/view-all-pr", component: ViewAllPRComponent, canActivate: [MUserGuard] },
+  { path: "mHome/view-all-emp", component: ViewAllEmpComponent, canActivate: [MUserGuard] },
   { path: "eHome", component: EhomeComponent, canActivate: [EUserGuard] }
 ];
 

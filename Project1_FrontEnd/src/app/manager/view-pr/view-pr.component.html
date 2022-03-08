@@ -1,3 +1,26 @@
+<div class="container m-5">
+    <form #myFormTemplate="ngForm" (ngSubmit)="makeCall()">
+        <div class="card-header">Please enter the ID for the pending reimbursement you would like to view. <div class="small text-danger">{{ errorMessage }}</div></div>
+
+        <div class="card-body">
+
+            
+            <div>
+                <label for="username" class="form-label">Reimbursement ID:</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required
+                    #myUsername="ngModel" [(ngModel)]="pendingReimbursement.reimbursementId">
+                <div *ngIf="!myUsername.valid" class="small text-danger">*Username is required!</div>
+            </div>
+            
+
+        </div>
+        <div class="card-footer">
+            <button [disabled]="!myFormTemplate.valid" type="submit" class="btn">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
 <div class="container pt-5 my-5">
     <table class="table table-hover m-3">
         <thead class="table-success">
