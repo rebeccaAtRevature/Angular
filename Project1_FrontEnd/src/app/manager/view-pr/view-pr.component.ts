@@ -37,7 +37,6 @@ export class ViewPrComponent implements OnInit {
     
     if( this.pendingReimbursement.requestingEmployeeId == 0 ){
       // invalid credentials
-      console.log("entered If clause");
       this.errorMessage = "Must be valid reimbursement ID";
     } else {
       // successful login

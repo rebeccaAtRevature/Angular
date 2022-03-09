@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Reimbursement } from 'src/app/reimbursement/reimbursement.model';
 import { ManagerService } from '../manager.service';
@@ -10,7 +10,7 @@ import { ManagerService } from '../manager.service';
 })
 export class AppDenyComponent implements OnInit {
 
-  pendingReimbursement: Reimbursement = {
+  @Input() pendingReimbursement: Reimbursement = {
     reimbursementId: 0,
     requestingEmployeeId: 0,
     reimbursementAmount: 0,
@@ -30,6 +30,7 @@ export class AppDenyComponent implements OnInit {
   }
 
   makeCall(){
+    console.log("entered makeCall")
     this.managerService.approveOrDeny(this.pendingReimbursement)
   }
 
@@ -40,5 +41,11 @@ export class AppDenyComponent implements OnInit {
   });
   }
 
- 
+  approve(){
+    this.pendingReimbursement.requestApproved = true;
+  }
+
+  deny(){
+    this.pendingReimbursement.requestApproved = false;
+  }
 }

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddPrComponent } from './employee/add-pr/add-pr.component';
 import { EhomeComponent } from './employee/ehome/ehome.component';
 import { UpdateEmpComponent } from './employee/update-emp/update-emp.component';
+import { ViewEmpPrComponent } from './employee/view-emp-pr/view-emp-pr.component';
+import { ViewEmpRrComponent } from './employee/view-emp-rr/view-emp-rr.component';
 import { ViewEmpComponent } from './employee/view-emp/view-emp.component';
 import { EUserGuard } from './eUser/e-user.guard';
 import { EloginComponent } from './eUser/elogin/elogin.component';
@@ -37,8 +39,8 @@ const routes: Routes = [
   { path: "eHome/add-pr", component: AddPrComponent, canActivate: [EUserGuard] },
   { path: "eHome/update-emp", component: UpdateEmpComponent, canActivate: [EUserGuard] },
   { path: "eHome/view-emp", component: ViewEmpComponent, canActivate: [EUserGuard] },
-  { path: "eHome/view-emp-rr", component: ViewEmpRComponent, canActivate: [EUserGuard] },
-  { path: "eHome/view-emp-pr", component: ViewEmpRComponent, canActivate: [EUserGuard] },
+  { path: "eHome/view-emp-rr", component: ViewEmpRrComponent, canActivate: [EUserGuard] },
+  { path: "eHome/view-emp-pr", component: ViewEmpPrComponent, canActivate: [EUserGuard] },
   { path: "eHome/elogout", component: MlogoutComponent },
   
 ];

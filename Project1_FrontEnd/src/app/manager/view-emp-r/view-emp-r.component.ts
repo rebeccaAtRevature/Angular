@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Reimbursement } from 'src/app/reimbursement/reimbursement.model';
 import { ManagerService } from '../manager.service';
@@ -12,7 +12,7 @@ export class ViewEmpRComponent implements OnInit {
 
   allReimbursements: Reimbursement[] = [];
 
-  employeeId: number = 0;
+  employeeId: number = 100;
   
   constructor(private managerService: ManagerService, private router: Router) { }
 
@@ -22,5 +22,10 @@ export class ViewEmpRComponent implements OnInit {
       this.allReimbursements = response;
     });
   }
-
+  refresh(): void {
+      this.managerService.viewAllRequests(this.employeeId).subscribe( response => {
+      console.log(response);
+      this.allReimbursements = response;
+    });
+  }
 }

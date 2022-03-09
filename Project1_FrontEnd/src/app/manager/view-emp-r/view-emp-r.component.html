@@ -1,4 +1,8 @@
 <div><button class="btn" type="button" routerLink="/mHome">Home</button></div>
+<div><label for="emplID" class="empID">Please enter an employee Id:</label>
+    <input type="text" id="empID" placeholder="Enter Employee ID" name="empID" [(ngModel)]="employeeId" >
+    <button type="button" class="btn" (click)="refresh()">Submit</button>
+</div>
 <div class="container pt-5 my-5">
     <table class="table table-hover m-3">
         <thead class="table-success">

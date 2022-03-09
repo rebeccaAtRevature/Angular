@@ -1,24 +1,24 @@
-<div><button class="btn" type="button" routerLink="/mHome">Home</button></div>
+
 <div class="container m-5">
-    <form #myFormTemplate="ngForm" (ngSubmit)="makeCall()">
+    <form (ngSubmit)="makeCall()">
         <div class="card-header">Please choose one option: </div>
 
         <div class="card-body">
 
             
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio1" name="optradio" [(ngModel)] ="pendingReimbursement.requestApproved" value=true  checked>Approve
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" (click)="approve()" value=true  checked>Approve
                 <label class="form-check-label" for="radio1"></label>
               </div>
               <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio2" name="optradio" [(ngModel)] ="pendingReimbursement.requestApproved" value=false >Deny
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" (click)="deny()" value=false >Deny
                 <label class="form-check-label" for="radio2"></label>
               </div>
             
 
         </div>
         <div class="card-footer">
-            <button [disabled]="!myFormTemplate.valid" type="submit" class="btn">
+            <button type="submit" class="btn">
                 Submit
             </button>
         </div>
