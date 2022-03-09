@@ -1,1 +1,25 @@
-<p>add-pr works!</p>
+<div><button class="btn" type="button" routerLink="/eHome">Home</button></div>
+<div class="card m-5">
+    <div class="card-header bg-success text-white">Add a Reimbursement Request</div>
+    <div class="card-body">
+        <form>
+            <div class="mb-3 mt-3">
+              <label for="amount" class="form-label"> Reimbursement Amount:</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="amount" 
+                placeholder="Enter Reimbursement Amount" 
+                name="amount"
+                [(ngModel)]="newReimbursement.reimbursementAmount">
+            </div>
+            
+            
+          </form>
+    </div>
+    <div class="card-footer bg-success">
+        <button type="button" class="btn btn-light" (click)="addReimbursement()">
+            ADD
+        </button>
+    </div>
+</div>

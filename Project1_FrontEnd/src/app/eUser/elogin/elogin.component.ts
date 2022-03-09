@@ -21,7 +21,7 @@ export class EloginComponent implements OnInit {
     employeeId: 0,
     employeeFirstName: "",
     employeeLastName: "",
-    employeeContact: "",
+    employeePhoneNumber: "",
     employeeAddress: "",
     employeePassword: "",
     employeeImageUrl: ""
@@ -34,12 +34,12 @@ export class EloginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  validateUser(){
+  async validateUser(){
 
-    this.euserService.validateMUser(this.newUser).subscribe( response => {
+      (await this.euserService.validateEUser(this.newUser)).subscribe( response => {
       console.log(response);
       this.employee.employeeAddress = response.employeeAddress;
-      this.employee.employeeContact = response.employeeContact;
+      this.employee.employeePhoneNumber = response.employeePhoneNumber;
       this.employee.employeeFirstName = response.employeeFirstName;
       this.employee.employeeId = response.employeeId;
       this.employee.employeeImageUrl = response.employeeImageUrl;

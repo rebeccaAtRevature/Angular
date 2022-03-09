@@ -1,1 +1,54 @@
-<p>update-emp works!</p>
+<div><button class="btn" type="button" routerLink="/eHome">Home</button></div>
+<div class="container m-5">
+    <div class="card-header bg-warning text-white">Update Employee</div>
+    <form #myFormTemplate="ngForm" (ngSubmit)="uEmployee()">
+        <div class="card-body">
+            <div class="mb-3 mt-3">
+                <label for="ID" class="form-label">Employee ID :</label>
+                {{ updatedEmployee.employeeId }}
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="first-name" class="form-label">First Name:</label>
+                <input type="text" class="form-control" id="first-name" placeholder="Enter First Name" name="firstName"
+                    required #myFirstName="ngModel" [(ngModel)]="updatedEmployee.employeeFirstName">
+                <div *ngIf="!myFirstName.valid" class="small text-danger">First Name is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="last-name" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" id="last-name" placeholder="Enter Last Name" name="last-name"
+                    required #myLastName="ngModel" [(ngModel)]="updatedEmployee.employeeLastName">
+                <div *ngIf="!myLastName.valid" class="small text-danger">Last Name is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="phone" class="form-label">Phone Number:</label>
+                <input type="text" class="form-control" id="phone" placeholder="Enter phone number" name="bookGenre"
+                    required #myPhone="ngModel" [(ngModel)]="updatedEmployee.employeePhoneNumber">
+                <div *ngIf="!myPhone.valid" class="small text-danger">Phone Number is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="address" class="form-label">Address:</label>
+                <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" required
+                    #myAddress="ngModel" [(ngModel)]="updatedEmployee.employeeAddress">
+                <div *ngIf="!myAddress.valid" class="small text-danger">Address is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="text" class="form-control" id="password" placeholder="Enter password" name="password"
+                    required #myPassword="ngModel" [(ngModel)]="updatedEmployee.employeePassword">
+                <div *ngIf="!myPassword.valid" class="small text-danger">Password is required!</div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="image" class="form-label">Employee Head Shot URL:</label>
+                <input type="text" class="form-control" id="image" placeholder="Enter Employee Head Shot URL"
+                    name="employeeImageUrl" required #myImage="ngModel" [(ngModel)]="updatedEmployee.employeeImageUrl">
+                <div *ngIf="!myImage.valid" class="small text-danger">Emoloyee Head Shot URL is required!</div>
+            </div>
+        </div>
+        <div class="card-footer bg-warning">
+
+                <button [disabled]="!myFormTemplate.valid" type="submit" class="btn btn-light">
+                    UPDATE
+                </button>
+        </div>
+    </form>
+</div>

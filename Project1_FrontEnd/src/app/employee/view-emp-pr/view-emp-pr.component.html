@@ -1,1 +1,22 @@
-<p>view-emp-pr works!</p>
+<div><button class="btn" type="button" routerLink="/eHome">Home</button></div>
+
+<div class="container pt-5 my-5">
+    <table class="table table-hover m-3">
+        <thead class="table-success">
+            <tr>
+                <th>Reimbursement ID</th>
+                <th>Requesting Employee ID</th>
+                <th>Reimbursement Amount</th>
+                <th>Date of Request</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pendingReimbursement of empPendingReimbursements">
+                <td>{{ pendingReimbursement.reimbursementId }}</td>
+                <td>{{ pendingReimbursement.requestingEmployeeId }}</td>
+                <td>{{ pendingReimbursement.reimbursementAmount }}</td>
+                <td>{{ pendingReimbursement.dateOfRequest }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

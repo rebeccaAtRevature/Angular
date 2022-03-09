@@ -12,7 +12,7 @@ export class EUserService {
 
   constructor(private http: HttpClient, private eAuthService: EAuthService) { }
 
-  validateMUser(newEUser: EUser): Observable<Employee>{
+  async validateEUser(newEUser: EUser): Promise<Observable<Employee>>{
     console.log(newEUser.username);
     console.log(newEUser.password);
     // Make http get request

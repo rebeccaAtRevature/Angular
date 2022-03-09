@@ -11,13 +11,31 @@ export class EAuthService {
 
   loggedIn: boolean = false;
 
+  employee: Employee = {
+    employeeId: 0,
+    employeeFirstName: "",
+    employeeLastName: "",
+    employeePhoneNumber: "",
+    employeeAddress: "",
+    employeePassword: "",
+    employeeImageUrl: ""
+  }
+
   storeUser(employee: Observable<Employee>): void{
     sessionStorage.setItem("employeeInfo", JSON.stringify(employee));
   }
 
   retrieveUser(): Employee{
     let data: any = sessionStorage.getItem("employeeInfo");
-    return JSON.parse(data);
+    this.employee = JSON.parse(data);
+    console.log(this.employee.employeeAddress);
+    console.log(this.employee.employeeFirstName);
+    console.log(this.employee.employeeId);
+    console.log(this.employee.employeeImageUrl);
+    console.log(this.employee.employeeLastName);
+    console.log(this.employee.employeePassword);
+    console.log(this.employee.employeePhoneNumber);
+    return this.employee;
   }
 
   destroyUser(): void{

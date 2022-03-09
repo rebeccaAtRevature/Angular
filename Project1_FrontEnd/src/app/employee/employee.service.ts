@@ -12,10 +12,10 @@ export class EmployeeService {
   constructor(private http: HttpClient) { }
 
   submitRequest(reimbursement: Reimbursement): Observable<Reimbursement>{
-    return this.http.post<Reimbursement>(`http://localhost:4040/api/p-reim`, reimbursement);
+    return this.http.post<Reimbursement>(`http://localhost:4040/api/p-reims`, reimbursement);
   }
   viewEmpPendingRequests(employeeId: number): Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>(`http://localhost:4040/api/p-reim/${employeeId}`);
+    return this.http.get<Reimbursement[]>(`http://localhost:4040/api/p-reims/${employeeId}`);
   }
   viewEmpResolvedRequests(employeeId: number): Observable<Reimbursement[]>{
     return this.http.get<Reimbursement[]>(`http://localhost:4040/api/r-reims/${employeeId}`);
@@ -24,6 +24,6 @@ export class EmployeeService {
     return this.http.get<Employee>(`http://localhost:4040/api/employee/${employeeId}`);
   }
   updateEmployee(employee: Employee): Observable<Employee>{
-    return this.http.put<Employee>(`http://localhost:4040/api/u-emp`, employee);
+    return this.http.put<Employee>(`http://localhost:4040/api/employees`, employee);
   }
 }

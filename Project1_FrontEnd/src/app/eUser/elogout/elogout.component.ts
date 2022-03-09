@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { EAuthService } from '../e-auth.service';
 
 @Component({
   selector: 'app-elogout',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElogoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eAuthService: EAuthService, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.eAuthService.destroyUser();
+
+    this.eAuthService.loggedIn=false;
+
+    this.router.navigate(['loginMain']);
   }
 
 }

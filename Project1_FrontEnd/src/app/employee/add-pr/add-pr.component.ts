@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EAuthService } from 'src/app/eUser/e-auth.service';
+import { Reimbursement } from 'src/app/reimbursement/reimbursement.model';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-add-pr',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPrComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eAuthService: EAuthService, private employeeService: EmployeeService ) { }
+
+  newReimbursement: Reimbursement = {
+    reimbursementId: 0,
+    requestingEmployeeId: this.eAuthService.retrieveUser().employeeId,
+    reimbursementAmount: 0
+  }
+  
 
   ngOnInit(): void {
+    console.log(this.eAuthService.retrieveUser().employeeId);
+    console.log(this.eAuthService.retrieveUser().employeePassword);
+  }
+
+  addReimbursement(): void {
+    this.employeeService.submitRequest(this.newReimbursement).subscribe( response => {
+      console.log(response);
+      this.newReimbursement.reimbursementId = response.reimbursementId;
+      this.newReimbursement.requestingEmployeeId = response.requestingEmployeeId;
+      this.newReimbursement.reimbursementAmount = response.reimbursementAmount;
+      this.newReimbursement.dateOfRequest = response.dateOfRequest;
+    });
   }
 
 }
