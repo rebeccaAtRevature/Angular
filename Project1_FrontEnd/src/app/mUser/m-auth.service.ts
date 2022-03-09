@@ -11,7 +11,7 @@ export class MAuthService {
 
   loggedIn: boolean = false;
 
-  storeUser(manager: Observable<Manager>): void{
+  storeUser(manager: Manager): void{
     sessionStorage.setItem("managerInfo", JSON.stringify(manager));
   }
 

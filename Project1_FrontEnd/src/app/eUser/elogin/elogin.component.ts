@@ -34,30 +34,36 @@ export class EloginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async validateUser(){
+  validateUser(){
 
-      (await this.euserService.validateEUser(this.newUser)).subscribe( response => {
+      this.euserService.validateEUser(this.newUser).subscribe( response => {
       console.log(response);
-      this.employee.employeeAddress = response.employeeAddress;
-      this.employee.employeePhoneNumber = response.employeePhoneNumber;
-      this.employee.employeeFirstName = response.employeeFirstName;
-      this.employee.employeeId = response.employeeId;
-      this.employee.employeeImageUrl = response.employeeImageUrl;
-      this.employee.employeeLastName = response.employeeLastName;
-      this.employee.employeePassword = response.employeePassword;
-    })
-
-    if(this.employee.employeeId == 0){
-      // invalid credentials
-      this.errorMessage = "Invalid Credentials!!";
-      this.eAuthService.loggedIn = true;
-    }else{
-      // successful login
-  
-        //navigate to book-crud
+      if(response.employeeId == 0){
+        // invalid credentials
+        console.log("entered login if()")
+        this.errorMessage = "Invalid Credentials!!";
+        
+      }else{
+        // successful login
+        this.employee.employeeAddress = response.employeeAddress;
+        this.employee.employeePhoneNumber = response.employeePhoneNumber;
+        this.employee.employeeFirstName = response.employeeFirstName;
+        this.employee.employeeId = response.employeeId;
+        this.employee.employeeImageUrl = response.employeeImageUrl;
+        this.employee.employeeLastName = response.employeeLastName;
+        this.employee.employeePassword = response.employeePassword;
+        
+        this.eAuthService.loggedIn = true;
+        this.eAuthService.storeUser(this.employee);
+        //navigate to employee home
         this.router.navigate(['eHome']);
         this.errorMessage = "";
         console.log("login succesfull!");
-    } 
+      } 
+     
+      
+    })
+
+    
   }
 }

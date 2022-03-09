@@ -33,32 +33,33 @@ export class MloginComponent implements OnInit {
   constructor(private muserService: MUserService, private router: Router, private mAuthService: MAuthService) { }
 
   ngOnInit(): void {
-    
+
   }
 
-  validateUser(){
+  validateUser() {
 
-    this.muserService.validateMUser(this.newUser).subscribe( response => {
-      this.mAuthService.loggedIn=true;
+    this.muserService.validateMUser(this.newUser).subscribe(response => {
+      this.mAuthService.loggedIn = true;
       console.log(response);
-      this.manager.managerAddress = response.managerAddress;
-      this.manager.managerContact = response.managerContact;
-      this.manager.managerFirstName = response.managerFirstName;
-      this.manager.managerId = response.managerId;
-      this.manager.managerImageUrl = response.managerImageUrl;
-      this.manager.managerLastName = response.managerLastName;
-      this.manager.managerPassword = response.managerPassword;
-    });
 
-    if( this.manager.managerId == 0 ){
-      // invalid credentials
-      this.errorMessage = "Invalid Credentials!";
-    } else {
-      // successful login
-      this.router.navigate(['mHome']);
-      this.errorMessage = "";
-      
-      console.log("login succesfull!!");
-    } 
+      if (response.managerId == 0) {
+        // invalid credentials
+        this.errorMessage = "Invalid Credentials!";
+      } else {
+        // successful login
+        this.manager.managerAddress = response.managerAddress;
+        this.manager.managerContact = response.managerContact;
+        this.manager.managerFirstName = response.managerFirstName;
+        this.manager.managerId = response.managerId;
+        this.manager.managerImageUrl = response.managerImageUrl;
+        this.manager.managerLastName = response.managerLastName;
+        this.manager.managerPassword = response.managerPassword;
+        this.router.navigate(['mHome']);
+        this.errorMessage = "";
+        this.mAuthService.loggedIn = true;
+        this.mAuthService.storeUser(this.manager);
+        console.log("login succesfull!!");
+      }
+    });
   }
 }

@@ -25,7 +25,9 @@ import { MlogoutComponent } from './mUser/mlogout/mlogout.component';
 const routes: Routes = [
   { path: "loginMain", component: LoginMainComponent },
   { path: "mlogin", component: MloginComponent },
+  { path: "loginMain/mlogin", component: MloginComponent },
   { path: "elogin", component: EloginComponent },
+  { path: "loginMain/elogin", component: EloginComponent },
   { path: "mHeader", component: MheaderComponent },
   { path: "mHome", component: MhomeComponent, canActivate: [MUserGuard] },
   { path: "mHome/app-deny", component: AppDenyComponent, canActivate: [MUserGuard] },

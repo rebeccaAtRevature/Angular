@@ -12,7 +12,7 @@ import { ManagerService } from '../manager.service';
 export class ViewPrComponent implements OnInit {
 
   pendingReimbursement: Reimbursement = {
-    reimbursementId: 10,
+    reimbursementId: 0,
     requestingEmployeeId: 0,
     reimbursementAmount: 0,
     dateOfRequest: ""

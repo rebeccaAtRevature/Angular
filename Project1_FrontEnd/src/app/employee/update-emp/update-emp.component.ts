@@ -29,6 +29,7 @@ export class UpdateEmpComponent implements OnInit {
     this.employeeService.updateEmployee(this.updatedEmployee).subscribe( response => {
       console.log(response);
       this.updatedEmployee = response;
+      this.eAuthService.storeUser(response);
     })
   }
 

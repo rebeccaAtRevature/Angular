@@ -31,7 +31,7 @@ export class AppDenyComponent implements OnInit {
 
   makeCall(){
     console.log("entered makeCall")
-    this.managerService.approveOrDeny(this.pendingReimbursement)
+    this.getRequest(this.pendingReimbursement)
   }
 
   getRequest(pendingReimbursement: Reimbursement): void{

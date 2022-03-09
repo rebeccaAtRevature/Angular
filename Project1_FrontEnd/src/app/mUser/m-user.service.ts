@@ -17,7 +17,7 @@ export class MUserService {
     console.log(newMUser.password);
     // Make http get request
     let manager = this.http.get<Manager>(`http://localhost:4040/api/login/${newMUser.username}/${newMUser.password}`);
-    this.mAuthService.storeUser(manager);
+    
     
     return manager;
   }
