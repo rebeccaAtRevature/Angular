@@ -11,6 +11,24 @@
                 <ul class="list-unstyled components">
                     <!-- <p>Manager Operations</p> -->
                     <li class="nav-item">
+                        <a class="nav-link" routerLink="view-all-emp">View All Employees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="view-all-rr">Veiw All Resolved Reimbursements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="view-all-pr">View all Pending Reimbursements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="view-emp-r">View all Reimbursements for an Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="view-pr">View a Pending Reimbursement</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="app-deny">Approve or Deny a Reimbursement</a>
+                    </li>
+                    <!-- <li class="nav-item">
                         <a class="nav-link" (click)="toggleViewAllEmployees()">View All Employees</a>
                     </li>
                     <li class="nav-item">
@@ -27,18 +45,19 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" (click)="toggleApproveOrDeny()">Approve or Deny a Reimbursement</a>
-                    </li>
+                    </li> -->
                 </ul>
             </nav>
 
         </div>
     </div>
     <div class="col">
-        <app-view-all-emp *ngIf="toggleVAE"></app-view-all-emp>
+        <!-- <router-outlet></router-outlet> -->
+        <!-- <app-view-all-emp *ngIf="toggleVAE"></app-view-all-emp>
         <app-view-all-pr *ngIf="toggleVARR"></app-view-all-pr>
         <app-view-all-rr *ngIf="toggleVAPR"></app-view-all-rr>
         <app-view-emp-r *ngIf="toggleVER"></app-view-emp-r>
         <app-view-pr *ngIf="toggleVPR"></app-view-pr>
-        <app-app-deny *ngIf="toggleAD"></app-app-deny>
+        <app-app-deny *ngIf="toggleAD"></app-app-deny> -->
     </div>
 </div>

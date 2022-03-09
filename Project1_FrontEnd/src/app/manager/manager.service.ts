@@ -15,7 +15,7 @@ export class ManagerService {
     return this.http.get<Reimbursement>(`http://localhost:4040/api/p-reim/${reimbursementId}`);
   }
   approveOrDeny(reimbursement: Reimbursement): Observable<Reimbursement>{
-    return this.http.get<Reimbursement>(`http://localhost:4040/api/p-reim/${reimbursement}`);
+    return this.http.post<Reimbursement>(`http://localhost:4040/api/p-reim`, reimbursement);
   }
   viewAllPendingRequests(): Observable<Reimbursement[]>{
     return this.http.get<Reimbursement[]>(`http://localhost:4040/api/all-p-reims`);

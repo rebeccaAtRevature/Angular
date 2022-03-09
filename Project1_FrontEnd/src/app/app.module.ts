@@ -21,6 +21,11 @@ import { MhomeComponent } from './manager/mhome/mhome.component';
 import { EhomeComponent } from './employee/ehome/ehome.component';
 import { ViewPrComponent } from './manager/view-pr/view-pr.component';
 import { MheaderComponent } from './mheader/mheader.component';
+import { AddPrComponent } from './employee/add-pr/add-pr.component';
+import { ViewEmpPrComponent } from './employee/view-emp-pr/view-emp-pr.component';
+import { ViewEmpRrComponent } from './employee/view-emp-rr/view-emp-rr.component';
+import { ViewEmpComponent } from './employee/view-emp/view-emp.component';
+import { UpdateEmpComponent } from './employee/update-emp/update-emp.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,12 @@ import { MheaderComponent } from './mheader/mheader.component';
     MhomeComponent,
     EhomeComponent,
     ViewPrComponent,
-    MheaderComponent
+    MheaderComponent,
+    AddPrComponent,
+    ViewEmpPrComponent,
+    ViewEmpRrComponent,
+    ViewEmpComponent,
+    UpdateEmpComponent
   ],
   imports: [
     BrowserModule,

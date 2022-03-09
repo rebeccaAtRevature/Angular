@@ -9,13 +9,13 @@ import { MAuthService } from './m-auth.service';
 })
 export class MUserGuard implements CanActivate {
 
-  constructor(private authService: MAuthService, private router: Router) { }
+  constructor(private mauthService: MAuthService, private router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if (this.authService.loggedIn){
+    if (this.mauthService.loggedIn){
       return true;
     } else {
       // Route to main login page

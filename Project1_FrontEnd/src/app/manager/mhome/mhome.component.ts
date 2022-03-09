@@ -53,7 +53,6 @@ export class MhomeComponent implements OnInit {
   }
 
   toggleAD: boolean = false;
-
   toggleApproveOrDeny(){
     if(this.toggleAD){
       this.toggleAD = false;
