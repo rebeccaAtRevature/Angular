@@ -5,7 +5,6 @@
         <thead class="table-success">
             <tr>
                 <th>Reimbursement ID</th>
-                <th>Requesting Employee ID</th>
                 <th>Reimbursement Amount</th>
                 <th>Date of Request</th>
             </tr>
@@ -13,7 +12,6 @@
         <tbody>
             <tr *ngFor="let pendingReimbursement of empPendingReimbursements">
                 <td>{{ pendingReimbursement.reimbursementId }}</td>
-                <td>{{ pendingReimbursement.requestingEmployeeId }}</td>
                 <td>{{ pendingReimbursement.reimbursementAmount }}</td>
                 <td>{{ pendingReimbursement.dateOfRequest }}</td>
             </tr>

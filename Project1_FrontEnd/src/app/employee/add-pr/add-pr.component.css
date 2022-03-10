@@ -1,4 +1,18 @@
-.btn{
+.btn {
     color: #fff;
     background: #696969;
+}
+
+.card-header {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #e5e4e2;
+    color: #696969;
+}
+
+.card-footer {
+    padding: 20px;
+    background: #e5e4e2;
+    color: #353839;
 }

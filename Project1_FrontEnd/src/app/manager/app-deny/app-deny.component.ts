@@ -31,21 +31,16 @@ export class AppDenyComponent implements OnInit {
 
   makeCall(){
     console.log("entered makeCall")
+    console.log(this.pendingReimbursement.requestApproved)
     this.getRequest(this.pendingReimbursement)
   }
 
   getRequest(pendingReimbursement: Reimbursement): void{
-     this.managerService.approveOrDeny(pendingReimbursement).subscribe( response => {
-      console.log(response);
-      this.resolvedReimbursement = response;
-  });
-  }
-
-  approve(){
-    this.pendingReimbursement.requestApproved = true;
-  }
-
-  deny(){
-    this.pendingReimbursement.requestApproved = false;
+    this.managerService.approveOrDeny(pendingReimbursement).subscribe( response => {
+    console.log(response);
+    this.resolvedReimbursement = response;
+      
+    });
+    
   }
 }

@@ -1,5 +1,5 @@
 <div><button class="btn" type="button" routerLink="/mHome">Home</button></div>
-<div><label for="emplID" class="empID">Please enter an employee Id:</label>
+<div class="container"><label for="emplID" class="empID">Please enter an employee Id: </label>
     <input type="text" id="empID" placeholder="Enter Employee ID" name="empID" [(ngModel)]="employeeId" >
     <button type="button" class="btn" (click)="refresh()">Submit</button>
 </div>
@@ -8,18 +8,20 @@
         <thead class="table-success">
             <tr>
                 <th>Reimbursement ID</th>
-                <th>Requesting Employee ID</th>
                 <th>Reimbursement Amount</th>
-                <th>Request Status</th>
+                <th>Request Pending</th>
+                <th>Request Approved</th>
+                <th>Date of Request</th>
                 <th>Date Resolved</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let Reimbursement of allReimbursements">
                 <td>{{ Reimbursement.reimbursementId }}</td>
-                <td>{{ Reimbursement.requestingEmployeeId }}</td>
                 <td>{{ Reimbursement.reimbursementAmount }}</td>
+                <td>{{ Reimbursement.reimbursementPending }}</td>
                 <td>{{ Reimbursement.requestApproved }}</td>
+                <td>{{ Reimbursement.dateOfRequest }}</td>
                 <td>{{ Reimbursement.dateResolved }}</td>
             </tr>
         </tbody>

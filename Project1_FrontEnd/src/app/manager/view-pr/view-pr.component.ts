@@ -33,17 +33,18 @@ export class ViewPrComponent implements OnInit {
       this.pendingReimbursement.requestingEmployeeId = response.requestingEmployeeId;
       this.pendingReimbursement.reimbursementAmount = response.reimbursementAmount;
       this.pendingReimbursement.dateOfRequest = response.dateOfRequest;
-    });
-    
-    if( this.pendingReimbursement.requestingEmployeeId == 0 ){
-      // invalid credentials
-      this.errorMessage = "Must be valid reimbursement ID";
-    } else {
-      // successful login
-      this.router.navigate(['mHome']);
-      this.errorMessage = "";
       
-      console.log("readPendingRequest() was succesfull!");
-    } 
+      if( this.pendingReimbursement.requestingEmployeeId == 0 ){
+        // invalid credentials
+        this.errorMessage = "Must be valid reimbursement ID";
+      } else {
+        // found in database
+        this.errorMessage = "";
+        
+        console.log("readPendingRequest() was succesfull!");
+      } 
+  });
+          
+      
   }
 }

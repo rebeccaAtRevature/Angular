@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EAuthService } from 'src/app/eUser/e-auth.service';
 import { Reimbursement } from 'src/app/reimbursement/reimbursement.model';
 import { EmployeeService } from '../employee.service';
@@ -10,7 +11,7 @@ import { EmployeeService } from '../employee.service';
 })
 export class AddPrComponent implements OnInit {
 
-  constructor(private eAuthService: EAuthService, private employeeService: EmployeeService ) { }
+  constructor(private eAuthService: EAuthService, private employeeService: EmployeeService, private router: Router) { }
 
   newReimbursement: Reimbursement = {
     reimbursementId: 0,
@@ -31,6 +32,7 @@ export class AddPrComponent implements OnInit {
       this.newReimbursement.requestingEmployeeId = response.requestingEmployeeId;
       this.newReimbursement.reimbursementAmount = response.reimbursementAmount;
       this.newReimbursement.dateOfRequest = response.dateOfRequest;
+      this.router.navigate(['/eHome']);
     });
   }
 
