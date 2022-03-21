@@ -15,6 +15,7 @@ export class ViewPrComponent implements OnInit {
     reimbursementId: 0,
     requestingEmployeeId: 0,
     reimbursementAmount: 0,
+    reimbursementPending: true,
     dateOfRequest: ""
   }
   errorMessage: string = "";

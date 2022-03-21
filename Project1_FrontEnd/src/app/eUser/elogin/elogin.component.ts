@@ -11,6 +11,8 @@ import { EUserService } from '../e-user.service';
   styleUrls: ['./elogin.component.css']
 })
 export class EloginComponent implements OnInit {
+
+  role: string = "EMPLOYEE"
   
   newUser: EUser = {
     username: "",

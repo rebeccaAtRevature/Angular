@@ -22,4 +22,24 @@ describe('EhomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(EhomeComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it(`should have as role 'Employee'`, () => {
+    const fixture = TestBed.createComponent(EhomeComponent);
+    const app = fixture.componentInstance;
+    expect(app.role).toEqual('Employee');
+  });
+
+  it('should render role', () => {
+    const fixture = TestBed.createComponent(EhomeComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('sidebar h3')?.textContent).toContain('Employee Operations');
+  });
+
 });

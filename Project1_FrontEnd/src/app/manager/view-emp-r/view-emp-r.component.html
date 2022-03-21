@@ -19,8 +19,8 @@
             <tr *ngFor="let Reimbursement of allReimbursements">
                 <td>{{ Reimbursement.reimbursementId }}</td>
                 <td>{{ Reimbursement.reimbursementAmount }}</td>
-                <td>{{ Reimbursement.reimbursementPending }}</td>
-                <td>{{ Reimbursement.requestApproved }}</td>
+                <td>{{ Reimbursement.reimbursementPending | pendingNotPending }}</td>
+                <td>{{ Reimbursement.requestApproved | approveDeny }}</td>
                 <td>{{ Reimbursement.dateOfRequest }}</td>
                 <td>{{ Reimbursement.dateResolved }}</td>
             </tr>

@@ -26,6 +26,8 @@ import { ViewEmpPrComponent } from './employee/view-emp-pr/view-emp-pr.component
 import { ViewEmpRrComponent } from './employee/view-emp-rr/view-emp-rr.component';
 import { ViewEmpComponent } from './employee/view-emp/view-emp.component';
 import { UpdateEmpComponent } from './employee/update-emp/update-emp.component';
+import { ApproveDenyPipe } from './manager/app-deny/approveDenyPipe';
+import { PendingNotPendingPipe } from './manager/view-emp-r/pendingNotPendingPipe';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { UpdateEmpComponent } from './employee/update-emp/update-emp.component';
     ViewEmpPrComponent,
     ViewEmpRrComponent,
     ViewEmpComponent,
-    UpdateEmpComponent
+    UpdateEmpComponent,
+    ApproveDenyPipe,
+    PendingNotPendingPipe
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,9 @@ import { UpdateEmpComponent } from './employee/update-emp/update-emp.component';
     HttpClientModule
 
   ],
+  // If I want to use a custom pipe created here in other modules add:
+  // exports: [ApproveDenyPipe]
+  
   providers: [],
   bootstrap: [AppComponent]
 })

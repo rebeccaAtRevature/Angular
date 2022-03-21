@@ -17,7 +17,7 @@
                 <td>{{ resolvedReimbursement.resolvedReimbursementId }}</td>
                 <td>{{ resolvedReimbursement.reimbursementId }}</td>
                 <td>{{ resolvedReimbursement.reimbursementAmount }}</td>
-                <td>{{ resolvedReimbursement.requestApproved }}</td>
+                <td>{{ resolvedReimbursement.requestApproved | approveDeny }}</td>
                 <td>{{ resolvedReimbursement.dateOfRequest }}</td>
                 <td>{{ resolvedReimbursement.dateResolved }}</td>
             </tr>

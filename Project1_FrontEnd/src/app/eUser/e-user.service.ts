@@ -13,10 +13,8 @@ export class EUserService {
   constructor(private http: HttpClient, private eAuthService: EAuthService) { }
 
   validateEUser(newEUser: EUser): Observable<Employee>{
-    console.log(newEUser.username);
-    console.log(newEUser.password);
     // Make http get request
-    let employee = this.http.get<Employee>(`http://localhost:4040/api/e-log/${newEUser.username}/${newEUser.password}`);
+    let employee = this.http.get<Employee>(`http://ec2-54-234-179-56.compute-1.amazonaws.com:9999/api/e-log/${newEUser.username}/${newEUser.password}`);
    
     return employee;
   }

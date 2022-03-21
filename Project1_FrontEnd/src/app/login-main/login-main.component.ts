@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-main.component.css']
 })
 export class LoginMainComponent implements OnInit {
+  
   toggleLogin: boolean = true;
+  title: string = "Expense Reimbursement System";
 
   toggleMainLogin(){
     if(this.toggleLogin){

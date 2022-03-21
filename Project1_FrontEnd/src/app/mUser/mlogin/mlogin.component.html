@@ -9,13 +9,13 @@
                 <label for="username" class="form-label">User ID:</label>
                 <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required
                     #myUsername="ngModel" [(ngModel)]="newUser.username">
-                <div *ngIf="!myUsername.valid" class="small text-danger">*Username is required!</div>
+                <div *ngIf="!myUsername.valid && myUsername.touched" class="small text-danger">*Username is required!</div>
             </div>
             <div class="mb-3 mt-3">
                 <label for="password" class="form-label">Password:</label>
                 <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required
                     #myPassword="ngModel" [(ngModel)]="newUser.password">
-                <div *ngIf="!myPassword.valid" class="small text-danger">*Password is required!</div>
+                <div *ngIf="!myPassword.valid && myUsername.touched" class="small text-danger">*Password is required!</div>
             </div>
             
 

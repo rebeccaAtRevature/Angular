@@ -16,7 +16,8 @@ export class AddPrComponent implements OnInit {
   newReimbursement: Reimbursement = {
     reimbursementId: 0,
     requestingEmployeeId: this.eAuthService.retrieveUser().employeeId,
-    reimbursementAmount: 0
+    reimbursementAmount: 0,
+    reimbursementPending: true
   }
   
 

@@ -16,7 +16,7 @@ export class MUserService {
     console.log(newMUser.username);
     console.log(newMUser.password);
     // Make http get request
-    let manager = this.http.get<Manager>(`http://localhost:4040/api/login/${newMUser.username}/${newMUser.password}`);
+    let manager = this.http.get<Manager>(`http://ec2-54-234-179-56.compute-1.amazonaws.com:9999/api/login/${newMUser.username}/${newMUser.password}`);
     
     
     return manager;

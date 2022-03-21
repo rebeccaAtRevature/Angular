@@ -14,12 +14,14 @@ export class AppDenyComponent implements OnInit {
     reimbursementId: 0,
     requestingEmployeeId: 0,
     reimbursementAmount: 0,
+    reimbursementPending: true,
     requestApproved: false,
   }
   resolvedReimbursement: Reimbursement = {
     reimbursementId: 0,
     requestingEmployeeId: 0,
     reimbursementAmount: 0,
+    reimbursementPending: false,
     requestApproved: false,
   }
 
@@ -39,7 +41,7 @@ export class AppDenyComponent implements OnInit {
     this.managerService.approveOrDeny(pendingReimbursement).subscribe( response => {
     console.log(response);
     this.resolvedReimbursement = response;
-      
+    this.router.navigate(['/mhome'])
     });
     
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EAuthService } from 'src/app/eUser/e-auth.service';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../empolyee.model';
@@ -10,7 +11,7 @@ import { Employee } from '../empolyee.model';
 })
 export class UpdateEmpComponent implements OnInit {
 
-  constructor(private eAuthService: EAuthService, private employeeService: EmployeeService) { }
+  constructor(private eAuthService: EAuthService, private employeeService: EmployeeService, private router: Router) { }
 
   updatedEmployee: Employee = {
     employeeId: this.eAuthService.retrieveUser().employeeId,
@@ -30,6 +31,7 @@ export class UpdateEmpComponent implements OnInit {
       console.log(response);
       this.updatedEmployee = response;
       this.eAuthService.storeUser(response);
+      this.router.navigate(['/ehome'])
     })
   }
 
